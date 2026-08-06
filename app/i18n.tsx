@@ -38,6 +38,13 @@ export const uiStrings: Record<
     viewPlace: string;
     openMaps: string;
     toggleLabel: string;
+    backToBrowse: string;
+    hoursLabel: string;
+    hoursUnconfirmed: string;
+    whyNotableLabel: string;
+    dishBackgroundLabel: string;
+    etiquetteLabel: string;
+    sourceLabel: string;
   }
 > = {
   en: {
@@ -47,6 +54,13 @@ export const uiStrings: Record<
     viewPlace: "View place",
     openMaps: "Open in Google Maps",
     toggleLabel: "中文",
+    backToBrowse: "← Back to all places",
+    hoursLabel: "Hours",
+    hoursUnconfirmed: "(not yet confirmed — verify before visiting)",
+    whyNotableLabel: "Why the craft is notable",
+    dishBackgroundLabel: "About the dish",
+    etiquetteLabel: "Good to know",
+    sourceLabel: "Source",
   },
   zh: {
     tagline:
@@ -55,6 +69,13 @@ export const uiStrings: Record<
     viewPlace: "查看詳情",
     openMaps: "在 Google 地圖開啟",
     toggleLabel: "EN",
+    backToBrowse: "← 返回所有店家",
+    hoursLabel: "營業時間",
+    hoursUnconfirmed: "(尚未確認,前往前請再次核實)",
+    whyNotableLabel: "工藝亮點",
+    dishBackgroundLabel: "料理背景",
+    etiquetteLabel: "小提醒",
+    sourceLabel: "資料來源",
   },
 };
 
