@@ -2,30 +2,21 @@
 
 import { useMemo, useState } from "react";
 import type { Discipline, Place } from "@/data/places";
-
-const disciplineLabels: Record<Discipline, string> = {
-  unagi: "Unagi",
-  tonkatsu: "Tonkatsu",
-  yakitori: "Yakitori",
-  ramen: "Ramen",
-  sushi: "Sushi",
-  tempura: "Tempura",
-  soba: "Soba",
-  kappo: "Kappo/Kaiseki",
-  sukiyaki: "Sukiyaki",
-};
+import { disciplineLabels, uiStrings, useLanguage } from "./i18n";
 
 export default function PlaceBrowser({ places }: { places: Place[] }) {
+  const { language } = useLanguage();
+  const labels = disciplineLabels[language];
+  const strings = uiStrings[language];
+
   const [activeDiscipline, setActiveDiscipline] = useState<Discipline | "all">(
     "all"
   );
 
   const disciplines = useMemo(() => {
     const present = new Set(places.map((place) => place.discipline));
-    return (Object.keys(disciplineLabels) as Discipline[]).filter((d) =>
-      present.has(d)
-    );
-  }, [places]);
+    return (Object.keys(labels) as Discipline[]).filter((d) => present.has(d));
+  }, [places, labels]);
 
   const filteredPlaces = useMemo(() => {
     if (activeDiscipline === "all") return places;
@@ -36,7 +27,7 @@ export default function PlaceBrowser({ places }: { places: Place[] }) {
     <div className="w-full max-w-5xl">
       <div className="flex flex-wrap justify-center gap-2 px-6">
         <FilterChip
-          label={`All (${places.length})`}
+          label={`${strings.all} (${places.length})`}
           active={activeDiscipline === "all"}
           onClick={() => setActiveDiscipline("all")}
         />
@@ -45,7 +36,7 @@ export default function PlaceBrowser({ places }: { places: Place[] }) {
           return (
             <FilterChip
               key={discipline}
-              label={`${disciplineLabels[discipline]} (${count})`}
+              label={`${labels[discipline]} (${count})`}
               active={activeDiscipline === discipline}
               onClick={() => setActiveDiscipline(discipline)}
             />
@@ -54,44 +45,47 @@ export default function PlaceBrowser({ places }: { places: Place[] }) {
       </div>
 
       <ul className="mt-10 grid grid-cols-1 gap-4 px-6 sm:grid-cols-2 lg:grid-cols-3">
-        {filteredPlaces.map((place) => (
-          <li
-            key={place.slug}
-            className="flex flex-col rounded-lg border border-zinc-200 p-5 text-left dark:border-zinc-800"
-          >
-            <span className="text-xs font-medium uppercase tracking-wide text-zinc-500 dark:text-zinc-400">
-              {disciplineLabels[place.discipline]}
-            </span>
-            <h2 className="mt-1 text-lg font-semibold text-black dark:text-zinc-50">
-              {place.name}{" "}
-              <span className="text-sm font-normal text-zinc-500 dark:text-zinc-400">
-                {place.nameJa}
+        {filteredPlaces.map((place) => {
+          const t = language === "zh" ? place.zh : place;
+          return (
+            <li
+              key={place.slug}
+              className="flex flex-col rounded-lg border border-zinc-200 p-5 text-left dark:border-zinc-800"
+            >
+              <span className="text-xs font-medium uppercase tracking-wide text-zinc-500 dark:text-zinc-400">
+                {labels[place.discipline]}
               </span>
-            </h2>
-            <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
-              {place.area}
-            </p>
-            <p className="mt-3 text-sm text-zinc-700 dark:text-zinc-300">
-              {place.theOneThing}
-            </p>
-            <div className="mt-4 flex gap-4 text-sm">
-              <a
-                className="underline underline-offset-2"
-                href={`/places/${place.slug}`}
-              >
-                View place
-              </a>
-              <a
-                className="underline underline-offset-2"
-                href={place.googleMapsUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Open in Google Maps
-              </a>
-            </div>
-          </li>
-        ))}
+              <h2 className="mt-1 text-lg font-semibold text-black dark:text-zinc-50">
+                {place.name}{" "}
+                <span className="text-sm font-normal text-zinc-500 dark:text-zinc-400">
+                  {place.nameJa}
+                </span>
+              </h2>
+              <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
+                {t.area}
+              </p>
+              <p className="mt-3 text-sm text-zinc-700 dark:text-zinc-300">
+                {t.theOneThing}
+              </p>
+              <div className="mt-4 flex gap-4 text-sm">
+                <a
+                  className="underline underline-offset-2"
+                  href={`/places/${place.slug}`}
+                >
+                  {strings.viewPlace}
+                </a>
+                <a
+                  className="underline underline-offset-2"
+                  href={place.googleMapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {strings.openMaps}
+                </a>
+              </div>
+            </li>
+          );
+        })}
       </ul>
     </div>
   );

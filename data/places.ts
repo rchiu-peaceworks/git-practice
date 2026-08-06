@@ -9,6 +9,14 @@ export type Discipline =
   | "kappo"
   | "sukiyaki";
 
+export interface PlaceTranslation {
+  area: string;
+  theOneThing: string;
+  whyNotable: string;
+  dishBackground: string;
+  etiquette?: string;
+}
+
 export interface Place {
   slug: string;
   name: string;
@@ -23,6 +31,7 @@ export interface Place {
   hoursConfirmed: boolean;
   googleMapsUrl: string;
   source: string;
+  zh: PlaceTranslation;
 }
 
 function mapsUrl(query: string): string {
@@ -45,6 +54,13 @@ export const places: Place[] = [
     hoursConfirmed: true,
     googleMapsUrl: mapsUrl("Izuei Honten Ueno Tokyo"),
     source: "https://japanjourneys.jp/tokyo/ueno/dining/restaurants/izuei-unagi/",
+    zh: {
+      area: "東京・上野",
+      theOneThing: "只供應鰻魚料理",
+      whyNotable: "歷史可追溯至江戶時代,約有三百年歷史,現已傳承至第九代。",
+      dishBackground:
+        "蒲燒鰻是將淡水鰻剖開去骨、以關東風格先蒸過,再刷上以醬油為基底的甜味醬汁,放到炭火上燒烤而成。這道料理在18世紀的江戶逐漸發展成正式的餐廳料理,當時鰻魚多取自城市周邊的河川與海灣。",
+    },
   },
   {
     slug: "nodaiwa",
@@ -62,6 +78,14 @@ export const places: Place[] = [
     googleMapsUrl: mapsUrl("Nodaiwa Azabu Iikura Honten Tokyo"),
     source:
       "https://old-tokyo.info/the-best-unagi-in-tokyo-200-years-old-restaurant-nodaiwa/",
+    zh: {
+      area: "東京・麻布",
+      theOneThing: "只供應鰻魚",
+      whyNotable:
+        "創業於寬政年間,約有兩百年歷史;現任主廚金本兼次郎為第五代傳人。",
+      dishBackground:
+        "蒲燒鰻是將淡水鰻剖開去骨、以關東風格先蒸過,再刷上以醬油為基底的甜味醬汁,放到炭火上燒烤而成。這道料理在18世紀的江戶逐漸發展成正式的餐廳料理,當時鰻魚多取自城市周邊的河川與海灣。",
+    },
   },
   {
     slug: "hashimoto",
@@ -78,6 +102,13 @@ export const places: Place[] = [
     googleMapsUrl: mapsUrl("Hashimoto Unagi Edogawabashi Tokyo"),
     source:
       "https://livejapan.com/en/in-tokyo/in-pref-tokyo/in-tokyo_train_station/article-a0002252/",
+    zh: {
+      area: "東京文京區・江戶川橋",
+      theOneThing: "只供應蒲燒鰻魚",
+      whyNotable: "自1835年起持續營業至今,現由第六代主廚掌店。",
+      dishBackground:
+        "蒲燒鰻是將淡水鰻剖開去骨、以關東風格先蒸過,再刷上以醬油為基底的甜味醬汁,放到炭火上燒烤而成。這道料理在18世紀的江戶逐漸發展成正式的餐廳料理,當時鰻魚多取自城市周邊的河川與海灣。",
+    },
   },
   {
     slug: "ponta-honke",
@@ -96,6 +127,14 @@ export const places: Place[] = [
     googleMapsUrl: mapsUrl("Ponta Honke Ueno Tokyo"),
     source:
       "https://www.tokyoweekender.com/food-and-drink/restaurants-and-bars/best-tonkatsu-restaurants-in-tokyo/",
+    zh: {
+      area: "東京・上野",
+      theOneThing: "只供應炸豬排",
+      whyNotable:
+        "創立於1905年,為東京炸豬排「三大老店」之一;現任店主島田良彥為第四代。",
+      dishBackground:
+        "豬排是將豬肉裹上麵包粉油炸而成,源自明治時代(1899年)對西式肉排的日式改良,後來搭配白飯、味噌湯與高麗菜絲,發展成獨具一格的和食,而非單純的西式舶來品。",
+    },
   },
   {
     slug: "tonkatsu-enraku",
@@ -113,6 +152,14 @@ export const places: Place[] = [
     googleMapsUrl: mapsUrl("Tonkatsu Enraku Shinbashi Tokyo"),
     source:
       "https://www.tokyoweekender.com/food-and-drink/restaurants-and-bars/best-tonkatsu-restaurants-in-tokyo/",
+    zh: {
+      area: "東京港區・新橋",
+      theOneThing: "只供應炸豬排",
+      whyNotable:
+        "自1950年由馬氏家族經營至今,裝潢與做法幾乎未變,現已傳承至第三代。",
+      dishBackground:
+        "豬排是將豬肉裹上麵包粉油炸而成,源自明治時代(1899年)對西式肉排的日式改良,後來搭配白飯、味噌湯與高麗菜絲,發展成獨具一格的和食,而非單純的西式舶來品。",
+    },
   },
   {
     slug: "kyobashi-isehiro",
@@ -131,6 +178,16 @@ export const places: Place[] = [
     hoursConfirmed: true,
     googleMapsUrl: mapsUrl("Kyobashi Isehiro Tokyo"),
     source: "https://www.tokyoupdates.metro.tokyo.lg.jp/en/post-1776/",
+    zh: {
+      area: "東京・京橋",
+      theOneThing: "只供應串燒雞肉",
+      whyNotable:
+        "1921年以雞肉鋪起家,現任第三代店主星野正伸經營;部分老顧客甚至也是第三代常客。",
+      dishBackground:
+        "串燒雞肉是將雞肉串起以炭火燒烤而成,自明治時代起在車站與勞工聚集區作為平價街頭小吃流行開來,後來被專門的串燒店提升為講究單一雞種、按部位分切燒烤的職人料理。",
+      etiquette:
+        "可用筷子將肉取下,或直接就著竹籤食用——切勿將咬過的串籤放回共用的盤子上。",
+    },
   },
   {
     slug: "kiraku",
@@ -147,6 +204,14 @@ export const places: Place[] = [
     hoursConfirmed: true,
     googleMapsUrl: mapsUrl("Kiraku ramen Shibuya Hyakkendana Tokyo"),
     source: "https://www.5amramen.com/post/ramen-in-shibuya-kiraku",
+    zh: {
+      area: "東京澀谷・百軒店",
+      theOneThing: "只供應麵食(醬油拉麵／餛飩麵),單一湯頭",
+      whyNotable:
+        "創立於1952年,現由第二代林茂夫經營,每天以同一配方售出約四百碗麵。",
+      dishBackground:
+        "拉麵源自中式小麥麵條湯品,經日本改良發展出醬油、味噌、豚骨等各地風格;戰後物資短缺與廉價食材,促成了1940年代末期以來全國性的拉麵風潮。",
+    },
   },
   {
     slug: "harukiya-ogikubo-honten",
@@ -163,6 +228,14 @@ export const places: Place[] = [
     hoursConfirmed: true,
     googleMapsUrl: mapsUrl("Harukiya Ogikubo Honten Tokyo"),
     source: "https://ramenbeast.com/blogs/news/tokyos-oldest-living-ramen-shops",
+    zh: {
+      area: "東京・荻窪",
+      theOneThing: "只供應醬油拉麵,單一配方",
+      whyNotable:
+        "自1949年營業至今,被視為東京拉麵的發源地之一;配方由創辦人家族傳承並不斷精進。",
+      dishBackground:
+        "拉麵源自中式小麥麵條湯品,經日本改良發展出醬油、味噌、豚骨等各地風格;戰後物資短缺與廉價食材,促成了1940年代末期以來全國性的拉麵風潮。",
+    },
   },
   {
     slug: "ichihachi-fukuzushi",
@@ -181,6 +254,16 @@ export const places: Place[] = [
     hoursConfirmed: false,
     googleMapsUrl: mapsUrl("Ichihachi Fukuzushi Sumida Tokyo"),
     source: "https://newsonjapan.com/article/142132.php",
+    zh: {
+      area: "東京・墨田",
+      theOneThing: "只供應江戶前壽司",
+      whyNotable:
+        "創立於1965年,現任第二代店主車澤和也自父親手中接下店鋪。",
+      dishBackground:
+        "江戶前壽司起源於19世紀初的江戶(今東京),原本是一種快餐:將醋飯以手捏製,搭配江戶灣現撈的新鮮魚貨,在路邊攤販售,方便顧客用手快速食用。",
+      etiquette:
+        "握壽司建議一口食用;可以直接用手拿取;沾醬油時請沾魚肉那一面,而非米飯。",
+    },
   },
   {
     slug: "umezono-sushi",
@@ -199,6 +282,16 @@ export const places: Place[] = [
     hoursConfirmed: false,
     googleMapsUrl: mapsUrl("Umezono Sushi Aoto Katsushika Tokyo"),
     source: "https://wanderlog.com/place/details/3488232/梅ぞの鮨-umezono-sushi",
+    zh: {
+      area: "東京葛飾區・青戶",
+      theOneThing: "只供應傳統下町風壽司",
+      whyNotable:
+        "家族經營超過三十年;主廚曾在銀座修業,之後專心鑽研單一風格的壽司。",
+      dishBackground:
+        "江戶前壽司起源於19世紀初的江戶(今東京),原本是一種快餐:將醋飯以手捏製,搭配江戶灣現撈的新鮮魚貨,在路邊攤販售,方便顧客用手快速食用。",
+      etiquette:
+        "握壽司建議一口食用;可以直接用手拿取;沾醬油時請沾魚肉那一面,而非米飯。",
+    },
   },
   {
     slug: "sansada",
@@ -217,6 +310,16 @@ export const places: Place[] = [
     hoursConfirmed: true,
     googleMapsUrl: mapsUrl("Sansada Asakusa Tokyo"),
     source: "http://tempura-sansada.co.jp/history.html",
+    zh: {
+      area: "東京・淺草",
+      theOneThing: "只供應天婦羅",
+      whyNotable:
+        "創立於1837年,是日本歷史最悠久的天婦羅專門店;至今仍維持江戶前風格,儘管歷史悠久卻鮮少主打觀光客。",
+      dishBackground:
+        "天婦羅是將海鮮與蔬菜裹粉油炸而成,16世紀隨葡萄牙商人傳入日本,到18、19世紀發展成江戶風天婦羅:以芝麻油二次油炸,搭配清爽的天婦羅沾醬享用。",
+      etiquette:
+        "每一份上桌後請盡快食用,沾醬時稍微沾一下即可,不要浸泡太久,才能保持麵衣酥脆。",
+    },
   },
   {
     slug: "kanda-matsuya",
@@ -235,6 +338,16 @@ export const places: Place[] = [
     hoursConfirmed: true,
     googleMapsUrl: mapsUrl("Kanda Matsuya Soba Tokyo"),
     source: "https://tinyurbankitchen.com/matsuya-kanda-soba-tokyo/",
+    zh: {
+      area: "東京千代田區・神田",
+      theOneThing: "只供應蕎麥麵",
+      whyNotable:
+        "創立於1884年,於1923年關東大地震後重建;手打蕎麥麵傳承超過140年,並獲東京都指定為歷史建築。",
+      dishBackground:
+        "蕎麥麵在江戶時代成為東京的日常主食,街坊蕎麥麵店將手切麵條變成快速方便的日常餐點,這門手藝至今仍以手切麵條本身的品質為核心。",
+      etiquette:
+        "發出吸麵聲是正常的,也被視為品嚐蕎麥麵香氣的一部分;沾麵露時只需沾到麵條下三分之一即可,不必整口浸入。",
+    },
   },
   {
     slug: "toyoda",
@@ -252,6 +365,15 @@ export const places: Place[] = [
     hoursConfirmed: false,
     googleMapsUrl: mapsUrl("Kappo Toyoda Nihonbashi Mitsukoshimae Tokyo"),
     source: "https://www.byfood.com/blog/tokyo/oldest-restaurants-in-tokyo",
+    zh: {
+      area: "東京日本橋・三越前",
+      theOneThing: "只供應割烹／懷石料理",
+      whyNotable: "有160年歷史,現任店主橋本亨為第五代傳人。",
+      dishBackground:
+        "割烹(字面意思為「切與煮」)是一種吧檯式的日式高級料理,主廚會在顧客面前現場料理每一道菜,有別於源自茶道、更為正式的懷石料理風格。",
+      etiquette:
+        "這是主廚發辦的吧檯料理——建議讓主廚安排上菜順序,盡量避免要求更換菜色。",
+    },
   },
   {
     slug: "janoichi-honten",
@@ -270,6 +392,16 @@ export const places: Place[] = [
     hoursConfirmed: true,
     googleMapsUrl: mapsUrl("Janoichi Honten Nihonbashi Muromachi Tokyo"),
     source: "https://justincox.medium.com/130-year-old-sushi-in-tokyo-555487140af8",
+    zh: {
+      area: "東京日本橋・室町",
+      theOneThing: "只供應江戶前壽司",
+      whyNotable:
+        "1889年以路邊攤起家,現由第五代經營,使用持續熬煮超過130年的煮詰醬汁。",
+      dishBackground:
+        "江戶前壽司起源於19世紀初的江戶(今東京),原本是一種快餐:將醋飯以手捏製,搭配江戶灣現撈的新鮮魚貨,在路邊攤販售,方便顧客用手快速食用。",
+      etiquette:
+        "握壽司建議一口食用;可以直接用手拿取;沾醬油時請沾魚肉那一面,而非米飯。",
+    },
   },
   {
     slug: "iseju",
@@ -288,5 +420,15 @@ export const places: Place[] = [
     hoursConfirmed: true,
     googleMapsUrl: mapsUrl("Iseju Sukiyaki Nihonbashi Kodenmacho Tokyo"),
     source: "https://tabelog.com/en/tokyo/A1302/A130204/13008056/",
+    zh: {
+      area: "東京日本橋・小傳馬町",
+      theOneThing: "只供應壽喜燒",
+      whyNotable:
+        "創立於1869年,是東京歷史最悠久的壽喜燒專門店,現已傳承至第七代。",
+      dishBackground:
+        "壽喜燒是將薄切牛肉與蔬菜、豆腐一同放入甜醬油湯底中燉煮的料理,在1868年明治維新後開始普及——此前受佛教文化影響,吃牛肉長期受到限制。",
+      etiquette:
+        "煮熟的肉片請沾一下生蛋液再食用——這是這裡的標準吃法,並非額外選項。",
+    },
   },
 ];
