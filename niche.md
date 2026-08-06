@@ -4,10 +4,13 @@
 
 **The problem:** The well-known "best of" lists mostly surface the same touristy, overexposed spots — not because those spots are bad, but because visibility rewards marketing and reviews in English, not the quality of the craft. The genuinely exceptional, single-focus places get buried because they don't play that game.
 
+**Where:** Tokyo only. Narrowed from an initial Japan-wide scan so the operator (based in Tokyo) can actually verify places in person — see Task 15.
+
 **One-sentence inclusion test:**
-> A restaurant qualifies if it has practiced one Japanese culinary discipline (e.g. sushi, soba, unagi, tempura, ramen, tonkatsu) for 15+ years under one chef or lineage, and is patronized mainly by local regulars rather than foreign tourists.
+> A restaurant qualifies if it is located in Tokyo, has practiced one Japanese culinary discipline (e.g. sushi, soba, unagi, tempura, ramen, tonkatsu) for 15+ years under one chef or lineage, and is patronized mainly by local regulars rather than foreign tourists.
 
 **Explicitly excluded:**
+- Anywhere outside Tokyo
 - Anywhere that appears as a top pick on major English-language tourist "best of" lists
 - Fusion or varied menus (craft that isn't singularly focused)
 - Chains or multi-location restaurants
