@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useMemo, useState } from "react";
 import type { Discipline, Place } from "@/data/places";
 import { disciplineLabels, uiStrings, useLanguage } from "./i18n";
@@ -68,12 +69,12 @@ export default function PlaceBrowser({ places }: { places: Place[] }) {
                 {t.theOneThing}
               </p>
               <div className="mt-4 flex gap-4 text-sm">
-                <a
+                <Link
                   className="underline underline-offset-2"
                   href={`/places/${place.slug}`}
                 >
                   {strings.viewPlace}
-                </a>
+                </Link>
                 <a
                   className="underline underline-offset-2"
                   href={place.googleMapsUrl}

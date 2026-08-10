@@ -37,7 +37,7 @@ export default function PlaceDetail({ place }: { place: Place }) {
           {strings.hoursLabel}
         </h2>
         <p className="mt-1 text-zinc-800 dark:text-zinc-200">
-          {place.hours}
+          {t.hours}
           {!place.hoursConfirmed && (
             <span className="ml-1 text-zinc-500 dark:text-zinc-400">
               {strings.hoursUnconfirmed}

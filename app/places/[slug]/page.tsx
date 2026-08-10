@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation";
 import { places } from "@/data/places";
-import { LanguageProvider } from "@/app/i18n";
 import PlaceDetail from "./place-detail";
 
 export function generateStaticParams() {
@@ -19,9 +18,5 @@ export default async function PlacePage({
     notFound();
   }
 
-  return (
-    <LanguageProvider>
-      <PlaceDetail place={place} />
-    </LanguageProvider>
-  );
+  return <PlaceDetail place={place} />;
 }
