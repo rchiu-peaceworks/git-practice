@@ -68,15 +68,15 @@ export default function PlaceBrowser({ places }: { places: Place[] }) {
               <p className="mt-3 text-sm text-zinc-700 dark:text-zinc-300">
                 {t.theOneThing}
               </p>
-              <div className="mt-4 flex gap-4 text-sm">
+              <div className="-mb-2 mt-4 flex gap-4 text-sm">
                 <Link
-                  className="underline underline-offset-2"
+                  className="flex min-h-11 items-center underline underline-offset-2"
                   href={`/places/${place.slug}`}
                 >
                   {strings.viewPlace}
                 </Link>
                 <a
-                  className="underline underline-offset-2"
+                  className="flex min-h-11 items-center underline underline-offset-2"
                   href={place.googleMapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -105,7 +105,7 @@ function FilterChip({
     <button
       type="button"
       onClick={onClick}
-      className={`rounded-full border px-4 py-1.5 text-sm transition-colors ${
+      className={`flex min-h-11 items-center justify-center rounded-full border px-4 text-sm transition-colors ${
         active
           ? "border-black bg-black text-white dark:border-zinc-50 dark:bg-zinc-50 dark:text-black"
           : "border-zinc-300 text-zinc-700 hover:border-zinc-500 dark:border-zinc-700 dark:text-zinc-300 dark:hover:border-zinc-500"

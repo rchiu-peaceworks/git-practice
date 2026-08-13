@@ -13,7 +13,10 @@ export default function PlaceDetail({ place }: { place: Place }) {
   return (
     <div className="mx-auto flex min-h-screen max-w-2xl flex-col bg-zinc-50 px-6 py-16 dark:bg-black">
       <div className="flex items-center justify-between">
-        <Link href="/" className="text-sm underline underline-offset-2">
+        <Link
+          href="/"
+          className="flex min-h-11 items-center text-sm underline underline-offset-2"
+        >
           {strings.backToBrowse}
         </Link>
         <LanguageToggle />
@@ -48,7 +51,7 @@ export default function PlaceDetail({ place }: { place: Place }) {
 
       <div className="mt-8 flex flex-wrap gap-4 text-sm">
         <a
-          className="rounded-full border border-black px-4 py-1.5 text-black dark:border-zinc-50 dark:text-zinc-50"
+          className="flex min-h-11 items-center rounded-full border border-black px-4 text-black dark:border-zinc-50 dark:text-zinc-50"
           href={place.googleMapsUrl}
           target="_blank"
           rel="noopener noreferrer"
@@ -56,7 +59,7 @@ export default function PlaceDetail({ place }: { place: Place }) {
           {strings.openMaps}
         </a>
         <a
-          className="self-center underline underline-offset-2 text-zinc-500 dark:text-zinc-400"
+          className="flex min-h-11 items-center underline underline-offset-2 text-zinc-500 dark:text-zinc-400"
           href={place.source}
           target="_blank"
           rel="noopener noreferrer"

@@ -110,7 +110,7 @@ export function LanguageToggle() {
     <button
       type="button"
       onClick={toggle}
-      className="rounded-full border border-zinc-300 px-4 py-1.5 text-sm text-zinc-700 transition-colors hover:border-zinc-500 dark:border-zinc-700 dark:text-zinc-300 dark:hover:border-zinc-500"
+      className="flex min-h-11 items-center justify-center rounded-full border border-zinc-300 px-4 text-sm text-zinc-700 transition-colors hover:border-zinc-500 dark:border-zinc-700 dark:text-zinc-300 dark:hover:border-zinc-500"
     >
       {uiStrings[language].toggleLabel}
     </button>
